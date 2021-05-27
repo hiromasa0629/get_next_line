@@ -17,19 +17,24 @@ int     main()
         int fd;
         char *line;
         int i;
+		int a;
 
         i = 0;
+		a = 0;
         fd = open("text", O_RDONLY);
-        while (get_next_line(fd, &line) == 1)
+        while ((a = get_next_line(fd, &line)))
         {
-                printf("line[%d]: [%s]\n", i++, line);
+			//printf("gnl = [%d]\n", a);
+                printf("gnl[%d]: [%s]\n", a, line);
         //      printf("%s\n", line);
         }
-        printf("ret = %d\n", get_next_line(fd, &line));
-        fd = open("text2", O_RDONLY);
-        printf("ret = %d\n", get_next_line(fd, &line));
+		//printf("gnl = [%d]\n", a);
+		printf("gnl[%d]: [%s]\n", a, line);
+        //printf("ret = %d\n", get_next_line(fd, &line));
+        //fd = open("text2", O_RDONLY);
+        //printf("ret = %d\n", get_next_line(fd, &line));
 
-        free(line);
+        //free(line);
         //system("leaks a.out");
         return (0);
 }

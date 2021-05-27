@@ -17,12 +17,12 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-# define BUFF_SIZE 1
+//# define BUFF_SIZE 1
 
-int             ft_strlen(char *s);
-int             check_nl(char *s, char c);
-char            *ft_strdup(char *s);
-char            *ft_strjoin(char *save, char *buf);
-int             get_next_line(int fd, char **line);
+int		ft_strlen(char *s);
+int		check_nl(char *s, char c);
+char	*ft_strdup(char *s);
+char	*ft_strjoin(char *save, char *buf);
+int		get_next_line(int fd, char **line);
 
 #endif
