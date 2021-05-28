@@ -62,6 +62,7 @@ char	*ft_strdup(char *s)
 		i++;
 	}
 	string[i] = '\0';
+	//free(s);
 	//printf("string[%d] = [%s]\n", i, string);
 	return (string);
 }
@@ -85,19 +86,27 @@ char	*ft_strjoin(char *save, char *buf)
 		//printf("HERE\n");
 		return (ft_strdup(buf));
 	}
+	//printf("buf2 = [%s]\n", buf);
 	len = ft_strlen(save) + ft_strlen(buf);
+	//printf("strlen(buf) = [%d]\n", ft_strlen(buf));
 	join = (char *)malloc(sizeof(char) * (len + 1));
 	if (!join)
 		return (NULL);
+	//printf("buf2 = [%s]\n", buf);
+	//printf("buf2 = [%p]\n", buf);
 	i = 0;
 	j = 0;
+	//printf("buf2 = [%s]\n", buf);
 	while (save[i])
 		join[i++] = save[j++];
+	//printf("buf2 = [%s]\n", buf);
+	//printf("buf2 = [%p]\n", buf);
 	j = 0;
 	while (buf[j])
 		join[i++] = buf[j++];
 	join[i] = '\0';
 	//printf("join = [%s]\n", join);
 	//printf("save = [%s]\n", save);
+	free(save);
 	return (join);
 }

@@ -16,10 +16,10 @@ int     main()
 {
         int fd;
         char *line;
-        int i;
+        //int i;
 		int a;
 
-        i = 0;
+        //i = 0;
 		a = 0;
         fd = open("text", O_RDONLY);
         while ((a = get_next_line(fd, &line)))

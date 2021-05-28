@@ -22,6 +22,7 @@ char	*get_line(char *s)
 	i = 0;
 	while (s[i] && s[i] != '\n')
 		i++;
+	//printf("line[%d] = [%s]\n", i, s);
 	line = (char *)malloc(sizeof(char) * (i + 1));
 	if (!line)
 		return (NULL);
@@ -32,6 +33,7 @@ char	*get_line(char *s)
 		i++;
 	}
 	line[i] = '\0';
+	//printf("line = [%s]\n", line);
 	return (line);
 }
 
@@ -89,7 +91,9 @@ int	get_next_line(int fd, char **line)
 		if (!check_ret(ret, buf))
 			return (-1);
 		buf[ret] = '\0';
+		//printf("buf = [%s]\n", buf);
 		save = ft_strjoin(save, buf);
+		//printf("save = [%s]\n", save);
 	}
 	free(buf);
 	*line = get_line(save);
