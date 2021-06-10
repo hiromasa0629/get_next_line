@@ -12,29 +12,28 @@
 
 #include "get_next_line.h"
 
-int     main()
+int     main(int ac, char **av)
 {
-        int fd;
+        int fd[4] = {0};
         char *line;
-        //int i;
 		int a;
+		int	i;
+		int	index;
 
-        //i = 0;
 		a = 0;
-        fd = open("text", O_RDONLY);
-        while ((a = get_next_line(fd, &line)))
-        {
-			//printf("gnl = [%d]\n", a);
-                printf("gnl[%d]: [%s]\n", a, line);
-        //      printf("%s\n", line);
-        }
-		//printf("gnl = [%d]\n", a);
-		printf("gnl[%d]: [%s]\n", a, line);
-        //printf("ret = %d\n", get_next_line(fd, &line));
-        //fd = open("text2", O_RDONLY);
-        //printf("ret = %d\n", get_next_line(fd, &line));
-
-        //free(line);
-        //system("leaks a.out");
+		i = 1;
+		index = 0;
+		while (av[i])
+		{
+			fd[index++] = open(av[i++], O_RDONLY);
+		}
+		fd[index] = 0;
+		index = 0;
+		while (fd[index])
+		{
+         	while ((a = get_next_line(fd[index], &line)))
+            	printf("gnl[%d]: [%s]\n", a, line);
+			index++;
+		}
         return (0);
 }
